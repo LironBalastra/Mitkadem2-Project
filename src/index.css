@@ -1,0 +1,97 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Backgrounds */
+.main-bg {
+  background: linear-gradient(#3f3e3e, #212121);
+}
+
+/* Text Align */
+.text-c {
+  text-align: center;
+}
+
+/* Text Color */
+.text-white {
+  color: #e6e6e6;
+}
+
+.form-button {
+  background-color: #20438d;
+  border-color: rgba(255, 255, 255, 0.473);
+  color: #e6e6e6;
+}
+.form-button:hover,
+.form-button:active:hover,
+.form-button.active:hover {
+  background-color: #3565cc;
+  border-color: rgba(255, 255, 255, 0.781);
+  color: #e6e6e6;
+}
+
+.margin-g {
+  margin: 15px;
+}
+.margin-l {
+  margin-left: 15px;
+}
+
+.margin-r {
+  margin-right: 15px;
+}
+.margin-t {
+  margin-top: 15px;
+}
+.margin-b {
+  margin-bottom: 20px;
+}
+
+/* Bootstrap Form Control Extension */
+
+.form-control,
+.border-line {
+  background-color: #616161;
+  background-image: none;
+  border: 1px solid #424242;
+  border-radius: 1px;
+  display: block;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+}
+.form-control:focus,
+.border-line:focus {
+  border-color: #b9bafd;
+  background-color: #616161b0;
+  color: #e6e6e6;
+}
+.form-control,
+.form-control:focus {
+  box-shadow: none;
+}
+
+/* Container */
+.container-content {
+  background-color: #3a3a3aa2;
+  padding: 15px 20px 20px 20px;
+  border-color: #c6d3ee;
+  border-style: solid solid none;
+  border-width: 3px 0;
+}
+
+/* Login & Register Pages*/
+.sign-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+.login.login-container {
+  width: 300px;
+}
