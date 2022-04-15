@@ -1,5 +1,4 @@
 import React from "react";
-import "../style/SignUp.css";
 import { useState, Routes, Route } from "react";
 import existingUsers from "./usersInfo";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +8,7 @@ function SignUp() {
   const [password, setPaswword] = useState("");
   const [confirmPassword, SetConfirmPassword] = useState("");
   const [nickname, setNickname] = useState("");
+  var userImageURL = ""; // date userImage url
   const navigate = useNavigate();
 
   function isUserExists() {
@@ -20,12 +20,25 @@ function SignUp() {
     return false;
   }
 
+  function setImage(e) {
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+      userImageURL = reader.result;
+      console.log(userImageURL);
+    });
+
+    reader.readAsDataURL(e.target.files[0]);
+  }
+
   function checkUserDetails() {
     var flag = false;
     const emptyFields = !username || !nickname || !password || !confirmPassword;
     const passContainsNumbers = /\d/.test(password);
+    var img = document.getElementById("userImg").files[0];
     if (emptyFields) {
       createAlart("Please fill all the fields.", "emptyField");
+    } else if (img == "undefined" || img == null) {
+      createAlart("Select image.", "emptyField");
     } else if (isUserExists()) {
       createAlart("User is already exists.", "userExists");
     } else if (!passContainsNumbers) {
@@ -40,15 +53,16 @@ function SignUp() {
         "Password and confirm password should be same.",
         "passwordError"
       );
-      // success
-    } else {
+    } // success
+    else {
       flag = true;
       const newUser = {
         password: password,
         nickname: nickname,
+        img: userImageURL,
       };
       existingUsers[username] = newUser;
-      console.log(JSON.stringify(existingUsers, null, "    "));
+      console.log(JSON.stringify(existingUsers));
     }
     return flag;
   }
@@ -123,6 +137,19 @@ function SignUp() {
               value={confirmPassword}
               onChange={(e) => SetConfirmPassword(e.target.value)}
             />
+          </div>
+          <div className="input-group text-white">
+            <div className="input-group-prepend"></div>
+            <div className="custom-file">
+              <label className="custom-file-label">Select Image:</label>
+              <input
+                type="file"
+                className="custom-file-input"
+                id="userImg"
+                onChange={setImage}
+                accept="image/*"
+              ></input>
+            </div>
           </div>
           <br></br>
           <button
