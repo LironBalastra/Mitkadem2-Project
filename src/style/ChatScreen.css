@@ -8,9 +8,7 @@ body{
 .input-group-text{
     height: 50px;
 }
-.btn-outline-secondary{
-    display:inline;
-}
+
 .card {
     background: #fff;
     transition: .5s;
