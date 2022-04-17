@@ -6,15 +6,16 @@ import SendAudio from "./modals/SendAudio";
 import SendPhoto from "./modals/SendPhoto";
 import SendVideo from "./modals/SendVideo";
 function ChatScreen() {
-
+	const [viewChat, setViewChat] = useState('');
 	return (
 		<><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /><div class="container">
 			<div class="row clearfix">
 				<div class="col-lg-12">
 					<div class="card chat-app">
-						<LeftBar />
+						<div id="plist" class="people-list">
+							<LeftBar /> </div>
 						<div class="chat">
-						{/*comment*/}
+							{/*comment*/}
 							<div class="chat-header clearfix">
 								<div class="row">
 									<div class="col-lg-6">
