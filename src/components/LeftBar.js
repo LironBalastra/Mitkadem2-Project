@@ -2,8 +2,7 @@ import React from 'react'
 import { users } from "./Chat_data"
 import Contact from './Contact';
 import AddNewContact from "./modals/AddNewContact";
-export default function LeftBar() {
-
+export default function LeftBar(props) {
     return (
         <>
         <div class="clearfix">
@@ -28,8 +27,8 @@ export default function LeftBar() {
         </div>
         </div>
          <ul class="list-unstyled chat-list mt-2 mb-0">
-                {users.map(contact => {
-                    return (<Contact name={contact.nickname} image={contact.pathprofileimg} />);
+                {props.contactList.map((contact,index) => {
+                    return (<Contact setActiveContact = {props.setActiveContact} activeContact = {props.activeContact} setmessages = {props.setmessages} index = {index} name={contact.nickname} image={contact.picture} />);
                 }
                 )}
             </ul></>
