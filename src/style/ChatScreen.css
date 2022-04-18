@@ -110,7 +110,16 @@ body {
 .chat .chat-history {
     background-image: url(wallpaper.jpg);
     padding: 20px;
-    border-bottom: 2px solid #fff
+    border-bottom: 2px solid #fff;
+}
+
+.scroller {
+    height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex-direction: column-reverse !important;
+    display: flex;
+    margin-bottom: 2%;
 }
 
 .chat .chat-history ul {
@@ -138,6 +147,13 @@ body {
 .chat .chat-history .message-data-time {
     color: #72b5ef;
     padding-left: 6px
+}
+
+.float-up {
+    position: relative;
+    margin-top : 10px;
+    padding: 10px 0px;
+
 }
 
 .chat .chat-history .message {

@@ -9,7 +9,7 @@ export default function LeftBar(props) {
         <img src="/Amitpic.jpeg" width={40} height={40} />
         <div class="about float-left">
             <div class="name">Amit Cohen</div>
-            <div class="status"> <i class="fa fa-circle online"></i></div>
+            <div class="status"> <i></i></div>
         </div>
         <button id="addnewcontact" type="button" class="btn btn-primary float-right" onClick={AddNewContact}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
