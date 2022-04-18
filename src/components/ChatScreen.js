@@ -8,10 +8,11 @@ import SendVideo from "./modals/SendVideo";
 import { users } from "./Chat_data";
 import { useEffect } from "react";
 import ReactDOM from 'react-dom';
+import { submitMessage, handleSubmitChange,activeMessage} from "./sendMessage";
 function ChatScreen() {
 	const user = "amit";
 	const [contactList, setcontactList] = useState(users[user].contacts);
-	const [activeContact, setActiveContact] = useState(1);
+	const [activeContact, setActiveContact] = useState(0);
 	const [messages, setmessages] = useState([]);
 	var Chatwith = users[user].contacts[activeContact].nickname;
 	var Picturewith = users[user].contacts[activeContact].picture;
@@ -19,9 +20,7 @@ function ChatScreen() {
 		setmessages(users[user].contacts[activeContact].messages);
 		Chatwith = users[user].contacts[activeContact].nickname;
 		Picturewith = users[user].contacts[activeContact].picture;
-	}, [activeContact])
-
-
+	}, [activeContact,messages])
 	return (
 		<><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /><div class="container">
 			<div class="row clearfix">
@@ -85,22 +84,22 @@ function ChatScreen() {
 								</div>
 							</div>
 							<div class="chat-history scroller">
-									<ul class="m-b-0">
-										{messages.map(message => {
-											return <li class="clearfix float-up">
-												<div class="message-data text-right">
-												</div>
-												<div class="message other-message float-right"> {message.content}</div>
-											</li>
-										})}
-									</ul>
+								<ul class="m-b-0">
+									{messages.map(message => {
+										return <li class="clearfix float-up">
+											<div class="message-data text-right">
+											</div>
+											<div class="message other-message float-right"> {message.content}</div>
+										</li>
+									})}
+								</ul>
 							</div>
 							<div class="chat-message clearfix">
 								<div class="input-group mb-0">
 									<div class="input-group-prepend">
-										<span class="input-group-text"><i class="fa fa-send"></i></span>
+										<span class="input-group-text" onClick={() =>submitMessage(activeContact, user,setmessages)}><i class="fa fa-send"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Enter text here..." />
+									<input type="text" onChange={handleSubmitChange} class="form-control" placeholder="Enter text here..." />
 								</div>
 							</div>
 						</div>

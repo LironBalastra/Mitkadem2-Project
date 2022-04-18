@@ -4,7 +4,6 @@ export default function Contact(props) {
     const [selected, setSelected] = useState("");
 
     const clickHandler = () => {
-        console.log("Clicked", props.index)
         props.setActiveContact(props.index);
     };
 
