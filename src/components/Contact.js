@@ -12,11 +12,6 @@ export default function Contact(props) {
         else setSelected("");
     }, [props.activeContact])
     var timeleft = 10 * props.index + props.index;
-    var isonline;
-    if (props.index == 0)
-        isonline = "online";
-    else
-        isonline = "offline";
     return (
         <li class={"clearfix " + selected} onClick={clickHandler}>
             <img src={props.image} alt="avatar" />

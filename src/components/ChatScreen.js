@@ -3,12 +3,14 @@ import "../style/ChatScreen.css";
 import LeftBar from "./LeftBar";
 import AddNewContact from "./modals/AddNewContact";
 import SendAudio from "./modals/SendAudio";
-import SendPhoto from "./modals/SendPhoto";
+import SendPhoto from "./SendPhoto";
 import SendVideo from "./modals/SendVideo";
 import { users } from "./Chat_data";
 import { useEffect } from "react";
 import ReactDOM from 'react-dom';
-import { submitMessage, handleSubmitChange,activeMessage} from "./sendMessage";
+import { submitMessage, handleSubmitChange, activeMessage } from "./sendMessage";
+import SendPhotoModal from "./modals/SendPhotoModal";
+import DisplayMessages from "./DisplayMessages";
 function ChatScreen() {
 	const user = "amit";
 	const [contactList, setcontactList] = useState(users[user].contacts);
@@ -20,7 +22,7 @@ function ChatScreen() {
 		setmessages(users[user].contacts[activeContact].messages);
 		Chatwith = users[user].contacts[activeContact].nickname;
 		Picturewith = users[user].contacts[activeContact].picture;
-	}, [activeContact,messages])
+	}, [activeContact, messages])
 	return (
 		<><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /><div class="container">
 			<div class="row clearfix">
@@ -41,7 +43,7 @@ function ChatScreen() {
 										</div>
 									</div>
 									<div class="col-lg-6 hidden-sm text-right">
-										<button id="Photobutton" type="button" onClick={SendPhoto}>
+										<button id="Photobutton" type="button" onClick={SendPhotoModal}>
 											<a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
 										</button>
 										<div id="PhotoModal" class="modal">
@@ -51,7 +53,7 @@ function ChatScreen() {
 												<div class="mb-3">
 													<input class="form-control" type="file" id="formFile" />
 												</div>
-												<input class="btn btn-primary" type="button" value="Send"></input>
+												<input class="btn btn-primary" type="button" value="Send" onClick={SendPhoto}></input>
 											</div>
 										</div>
 										<button id="Videobutton" type="button" onClick={SendVideo}>
@@ -85,21 +87,15 @@ function ChatScreen() {
 							</div>
 							<div class="chat-history scroller">
 								<ul class="m-b-0">
-									{messages.map(message => {
-										return <li class="clearfix float-up">
-											<div class="message-data text-right">
-											</div>
-											<div class="message other-message float-right"> {message.content}</div>
-										</li>
-									})}
+								<DisplayMessages messages={messages} user ={user}/>
 								</ul>
 							</div>
 							<div class="chat-message clearfix">
 								<div class="input-group mb-0">
 									<div class="input-group-prepend">
-										<span class="input-group-text" onClick={() =>submitMessage(activeContact, user,setmessages)}><i class="fa fa-send"></i></span>
+										<span class="input-group-text" onClick={() => submitMessage(activeContact, user, setmessages, "1")}><i class="fa fa-send"></i></span>
 									</div>
-									<input type="text" onChange={handleSubmitChange} class="form-control" placeholder="Enter text here..." />
+									<input id='submitbox' type="text" onChange={handleSubmitChange} class="form-control" placeholder="Enter text here..." />
 								</div>
 							</div>
 						</div>

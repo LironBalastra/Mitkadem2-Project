@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal,Button } from "react-bootstrap";
-function SendPhoto() {
+function SendPhotoModal() {
     // Get the modal
     var modal = document.getElementById("PhotoModal");
 
@@ -27,4 +27,4 @@ function SendPhoto() {
         }
     }
 }
-export default SendPhoto
+export default SendPhotoModal
