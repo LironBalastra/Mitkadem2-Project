@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import "../style/Login.css";
 import { Link, useNavigate } from "react-router-dom";
-import existingUsers from "./usersInfo";
+import { users } from "./Chat_data";
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPaswword] = useState("");
   const navigate = useNavigate();
 
   function isUserExists() {
-    for (var existsUsername in existingUsers) {
+    for (var existsUsername in users) {
       if (username == existsUsername) {
         return true;
       }
@@ -24,7 +25,7 @@ function Login() {
     } else if (!isUserExists()) {
       createAlart("Username or Password is incorrect.", "detasilsError");
     } else {
-      const correctPassword = password == existingUsers[username].password;
+      const correctPassword = password == users[username].password;
       if (!correctPassword) {
         createAlart("Username or Password is incorrect.", "detasilsError");
       }

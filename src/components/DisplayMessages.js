@@ -6,7 +6,6 @@ const DisplayMessages = props => {
 
         return (messages.map(message => {
             if (message.sendby === props.user) { // Right
-                console.log("@@@@@@@@@")
                 if (message.type === "msg") {
                     return (<li class="clearfix float-up">
                         <div class="message-header float-right">{message.time}</div><br />

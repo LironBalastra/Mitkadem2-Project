@@ -2,7 +2,7 @@ import React from "react";
 import { useState, Routes, Route } from "react";
 import existingUsers from "./usersInfo";
 import { Link, useNavigate } from "react-router-dom";
-
+import { users } from "./Chat_data";
 function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPaswword] = useState("");
@@ -56,11 +56,71 @@ function SignUp() {
     else {
       flag = true;
       const newUser = {
-        password: password,
         nickname: nickname,
-        img: userImageURL,
+        password: password,
+        picture: userImageURL,
+        contacts :[
+          {
+            username: "liron",
+            nickname: "Liron Balastra",
+            picture: "/Liron.jpg",
+            messages: [
+                { time: "10:10", type: "msg", content: "Hello Liron !", sendby: "amit" },
+                { time: "10:11", type: "msg", content: "Hello Amit!", sendby: "liron" },
+                { time: "11:23", type: "msg", content: "ill be in the campos in 12:20", sendby: "amit" },
+                { time: "11:23", type: "msg", content: "campus*", sendby: "amit" },
+            ]
+
+        },
+        {
+            username: "yair",
+            nickname: "Yair Lapid",
+            picture: "/yair.jpg",
+            messages: [
+                { time: "12:10", type: "msg", content: "Hello Amit אחי היקר!", sendby: "yair" },
+                { time: "12:14", type: "msg", content: "do you have some tips for me when i will be a prime minister?", sendby: "yair" },
+                { time: "15:43", type: "msg", content: "i think that you will not be prime minister", sendby: "amit" },
+                { time: "16:22", type: "msg", content: "i have some tricks in my pocket", sendby: "yair" },
+                { time: "16:22", type: "msg", content: "dont you worry", sendby: "yair" },
+            ]
+
+        },
+        {
+            username: "gal",
+            nickname: "Gal Kaminka",
+            picture: "/gal.jpg",
+            messages: [
+                { time: "09:06", type: "msg", content: "Hello gal !", sendby: "amit" },
+                { time: "10:11", type: "msg", content: "Hello dear student!", sendby: "gal" },
+                { time: "12:10", type: "msg", content: "look at the beautiful bananas !", sendby: "amit" },
+                { time: "12:10", type: "pic", content: "/banana.jpg", sendby: "amit" },
+            ]
+
+        },
+        {
+            username: "justin",
+            nickname: "Justin Bieber",
+            picture: "/justin.jpg",
+            messages: [
+                { time: "11:10", type: "msg", content: "Love your new Album!", sendby: "amit" },
+                { time: "23:35", type: "msg", content: "I dont care bro", sendby: "justin" },
+                { time: "23:37", type: "vid", content: "/video.mp4", sendby: "amit" },
+            ]
+
+        },
+        {
+            username: "ronaldo",
+            nickname: "Cristiano Ronaldo",
+            picture: "/Ronaldo.png",
+            messages: [
+                { time: "13:16", type: "msg", content: "I heard that you are the best kicker in Bar Ilan", sendby: "ronaldo" },
+                { time: "13:16", type: "msg", content: "Do you want to play?", sendby: "ronaldo" },
+            ]
+
+        }
+        ]
       };
-      existingUsers[username] = newUser;
+      users[username] = newUser;
     }
     return flag;
   }
