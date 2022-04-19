@@ -38,7 +38,6 @@ export const users = {
                     { time: "10:11", type: "msg", content: "Hello dear student!", sendby: "gal" },
                     { time: "12:10", type: "msg", content: "look at the beautiful bananas !", sendby: "amit" },
                     { time: "12:10", type: "pic", content: "/banana.jpg", sendby: "amit" },
-                    { time: "13:25", type: "msg", content: "i love strawberrys", sendby: "gal" },
                 ]
 
             },
