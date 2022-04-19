@@ -4,13 +4,14 @@ import LeftBar from "./LeftBar";
 import AddNewContact from "./modals/AddNewContact";
 import SendAudio from "./modals/SendAudio";
 import SendPhoto from "./SendPhoto";
-import SendVideo from "./modals/SendVideo";
+import SendVideoModal from "./modals/SendVideoModal";
 import { users } from "./Chat_data";
 import { useEffect } from "react";
 import ReactDOM from 'react-dom';
 import { submitMessage, handleSubmitChange, activeMessage } from "./sendMessage";
 import SendPhotoModal from "./modals/SendPhotoModal";
 import DisplayMessages from "./DisplayMessages";
+import SendVideo from "./SendVideo";
 function ChatScreen() {
 	const user = "amit";
 	const [contactList, setcontactList] = useState(users[user].contacts);
@@ -56,7 +57,7 @@ function ChatScreen() {
 												<input class="btn btn-primary" type="button" value="Send" onClick={() =>SendPhoto(activeContact, user, setmessages)}></input>
 											</div>
 										</div>
-										<button id="Videobutton" type="button" onClick={SendVideo}>
+										<button id="Videobutton" type="button" onClick={SendVideoModal}>
 											<a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-youtube-play"></i></a>
 										</button>
 										<div id="VideoModal" class="modal">
@@ -64,7 +65,7 @@ function ChatScreen() {
 												<span class="close">&times;</span>
 												<h5 class="modal-title">Send Video</h5>
 												<div class="mb-3">
-													<input class="form-control" type="file" id="formFile" />
+													<input class="form-control" type="file" id="videoFile" />
 												</div>
 												<input class="btn btn-primary" type="button" value="Send"></input>
 											</div>

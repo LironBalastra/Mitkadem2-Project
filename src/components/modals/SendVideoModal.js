@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal,Button } from "react-bootstrap";
-function SendVideo() {
+function SendVideoModal() {
     // Get the modal
     var modal = document.getElementById("VideoModal");
 
@@ -27,4 +27,4 @@ function SendVideo() {
         }
     }
 }
-export default SendVideo
+export default SendVideoModal
