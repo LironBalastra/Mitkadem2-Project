@@ -24,7 +24,6 @@ function SignUp() {
     const reader = new FileReader();
     reader.addEventListener("load", () => {
       userImageURL = reader.result;
-      console.log(userImageURL);
     });
 
     reader.readAsDataURL(e.target.files[0]);
@@ -62,7 +61,6 @@ function SignUp() {
         img: userImageURL,
       };
       existingUsers[username] = newUser;
-      console.log(JSON.stringify(existingUsers));
     }
     return flag;
   }

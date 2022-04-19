@@ -4,7 +4,7 @@ import "../style/ChatScreen.css";
 import { users } from "./Chat_data";
 import ChatScreen from "./ChatScreen";
 var activeMessage;
-function submitMessage(activeContact, user, setmessages, num) {
+function submitMessage(activeContact, user, setmessages, num,uniqueContent) {
         if (num === "1") {  //text message
                 var today = new Date();
                 var curtime = today.getHours() + ":" + today.getMinutes();
@@ -14,7 +14,11 @@ function submitMessage(activeContact, user, setmessages, num) {
                 document.getElementById('submitbox').value = '';
         }
         if(num === "2"){  //picture
-                console.log("heyyy");
+                var today = new Date();
+                var curtime = today.getHours() + ":" + today.getMinutes();
+                const chatWith = users[user].contacts[activeContact].username;
+                users[user].contacts[activeContact].messages.push({ time: curtime, type: "pic", content: uniqueContent, sendby: user });
+                setmessages([...users[user].contacts[activeContact].messages]);
         }
 }
 function handleSubmitChange(event) {
