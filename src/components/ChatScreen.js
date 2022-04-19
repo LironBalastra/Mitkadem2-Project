@@ -29,7 +29,7 @@ function ChatScreen() {
 				<div class="col-lg-12 wide">
 					<div class="card chat-app">
 						<div id="plist" class="people-list">
-							<LeftBar contactList={contactList} setcontactList={setcontactList} setActiveContact={setActiveContact} activeContact={activeContact} /> </div>
+							<LeftBar contactList={contactList} setcontactList={setcontactList} setActiveContact={setActiveContact} activeContact={activeContact} user={user} users={users} messages={messages} /> </div>
 						<div class="chat">
 							{/*comment*/}
 							<div class="chat-header clearfix">
