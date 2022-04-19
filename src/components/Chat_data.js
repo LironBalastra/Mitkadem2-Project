@@ -25,7 +25,7 @@ export const users = {
                     { time: "12:14", type: "msg", content: "do you have some tips for me when i will be a prime minister?", sendby: "yair" },
                     { time: "15:43", type: "msg", content: "i think that you will not be prime minister", sendby: "amit" },
                     { time: "16:22", type: "msg", content: "i have some tricks in my pocket", sendby: "yair" },
-                    { time: "16:22", type: "msg", content: "dont you worryע", sendby: "yair" },
+                    { time: "16:22", type: "msg", content: "dont you worry", sendby: "yair" },
                 ]
 
             },
@@ -38,7 +38,6 @@ export const users = {
                     { time: "10:11", type: "msg", content: "Hello dear student!", sendby: "gal" },
                     { time: "12:10", type: "msg", content: "look at the beautiful bananas !", sendby: "amit" },
                     { time: "12:10", type: "pic", content: "/banana.jpg", sendby: "amit" },
-                    { time: "13:25", type: "msg", content: "i love strawberrys", sendby: "gal" },
                 ]
 
             },
