@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, Routes, Route } from "react";
-import existingUsers from "./usersInfo";
+import usersData from "./usersInfo";
 import { Link, useNavigate } from "react-router-dom";
-
+import constContacts from "./contacts";
 function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPaswword] = useState("");
@@ -12,7 +12,7 @@ function SignUp() {
   const navigate = useNavigate();
 
   function isUserExists() {
-    for (var existsUsername in existingUsers) {
+    for (var existsUsername in usersData) {
       if (username == existsUsername) {
         return true;
       }
@@ -58,9 +58,10 @@ function SignUp() {
       const newUser = {
         password: password,
         nickname: nickname,
-        img: userImageURL,
+        picture: userImageURL,
+        contacts: constContacts,
       };
-      existingUsers[username] = newUser;
+      usersData[username] = newUser;
     }
     return flag;
   }
@@ -86,6 +87,7 @@ function SignUp() {
     event.preventDefault();
     removeAlart();
     if (checkUserDetails()) {
+      console.log(JSON.stringify(usersData));
       navigate("/./");
     }
   };
