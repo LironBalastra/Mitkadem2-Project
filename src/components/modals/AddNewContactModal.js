@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal,Button } from "react-bootstrap";
-function AddNewContact() {
+function AddNewContactModal() {
     // Get the modal
     var modal = document.getElementById("newContactModal");
 
@@ -27,4 +27,4 @@ function AddNewContact() {
         }
     }
 }
-export default AddNewContact
+export default AddNewContactModal

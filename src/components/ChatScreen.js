@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../style/ChatScreen.css";
 import LeftBar from "./LeftBar";
-import AddNewContact from "./modals/AddNewContact";
 import SendAudio from "./modals/SendAudio";
 import SendPhoto from "./SendPhoto";
 import SendVideoModal from "./modals/SendVideoModal";
@@ -20,6 +19,8 @@ function ChatScreen() {
 	const [messages, setmessages] = useState([]);
 	var Chatwith = users[user].contacts[activeContact].nickname;
 	var Picturewith = users[user].contacts[activeContact].picture;
+	if (Picturewith === "")
+		Picturewith = "/avatar.jpg";
 	useEffect(() => {
 		setmessages(users[user].contacts[activeContact].messages);
 		Chatwith = users[user].contacts[activeContact].nickname;
@@ -38,7 +39,7 @@ function ChatScreen() {
 								<div class="row">
 									<div class="col-lg-6">
 										<a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-											<img src={Picturewith} alt="avatar" />
+											<img src={Picturewith} />
 										</a>
 										<div class="chat-about">
 											<h5 class="m-b-0">{Chatwith}</h5>
@@ -55,7 +56,7 @@ function ChatScreen() {
 												<div class="mb-3">
 													<input class="form-control" type="file" id="photoFile" />
 												</div>
-												<input class="btn btn-primary" type="button" value="Send" onClick={() =>SendPhoto(activeContact, user, setmessages)}></input>
+												<input class="btn btn-primary" type="button" value="Send" onClick={() => SendPhoto(activeContact, user, setmessages)}></input>
 											</div>
 										</div>
 										<button id="Videobutton" type="button" onClick={SendVideoModal}>
@@ -68,7 +69,7 @@ function ChatScreen() {
 												<div class="mb-3">
 													<input class="form-control" type="file" id="videoFile" />
 												</div>
-												<input class="btn btn-primary" type="button" value="Send"onClick={() =>SendVideo(activeContact, user, setmessages)}></input>
+												<input class="btn btn-primary" type="button" value="Send" onClick={() => SendVideo(activeContact, user, setmessages)}></input>
 											</div>
 										</div>
 										<button id="Audiobutton" type="button" onClick={SendAudio}>
@@ -89,7 +90,7 @@ function ChatScreen() {
 							</div>
 							<div class="chat-history scroller">
 								<ul class="m-b-0">
-								<DisplayMessages messages={messages} user ={user}/>
+									<DisplayMessages messages={messages} user={user} />
 								</ul>
 							</div>
 							<div class="chat-message clearfix">
