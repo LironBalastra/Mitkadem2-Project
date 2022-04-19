@@ -46,9 +46,9 @@ export const users = {
                 nickname: "Justin Bieber",
                 picture: "/justin.jpg",
                 messages: [
-                    { time: "11:10", type: "msg", content: "Hello Justin !", sendby: "amit" },
                     { time: "11:10", type: "msg", content: "Love your new Album!", sendby: "amit" },
                     { time: "23:35", type: "msg", content: "I dont care bro", sendby: "justin" },
+                    { time: "23:37", type: "vid", content: "/video.mp4", sendby: "amit" },
                 ]
 
             },

@@ -67,7 +67,7 @@ function ChatScreen() {
 												<div class="mb-3">
 													<input class="form-control" type="file" id="videoFile" />
 												</div>
-												<input class="btn btn-primary" type="button" value="Send"></input>
+												<input class="btn btn-primary" type="button" value="Send"onClick={() =>SendVideo(activeContact, user, setmessages)}></input>
 											</div>
 										</div>
 										<button id="Audiobutton" type="button" onClick={SendAudio}>

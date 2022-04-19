@@ -21,6 +21,15 @@ const DisplayMessages = props => {
                         </div>
                         <div class="message other-message float-right"> <img src={message.content} width="500" height="300"></img></div>
                     </li>);
+                else if(message.type === "vid")
+                return (<li class="clearfix float-up">
+                    <div class="message-header float-right">{message.time}</div>
+                        <div class="message-data text-right float-right">
+                        </div>
+                        <div class="message other-message float-right"> <video width="500" height="300" controls>
+                        <source src="/video.mp4" type="video/mp4"></source>
+                        </video></div>
+                    </li>);
             }
 
             else{  //Left
