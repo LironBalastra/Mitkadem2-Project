@@ -12,7 +12,7 @@ function SignUp() {
   const navigate = useNavigate();
 
   function isUserExists() {
-    for (var existsUsername in existingUsers) {
+    for (var existsUsername in users) {
       if (username == existsUsername) {
         return true;
       }
@@ -65,10 +65,10 @@ function SignUp() {
             nickname: "Liron Balastra",
             picture: "/Liron.jpg",
             messages: [
-                { time: "10:10", type: "msg", content: "Hello Liron !", sendby: "amit" },
+                { time: "10:10", type: "msg", content: "Hello Liron !", sendby: "1" },
                 { time: "10:11", type: "msg", content: "Hello Amit!", sendby: "liron" },
-                { time: "11:23", type: "msg", content: "ill be in the campos in 12:20", sendby: "amit" },
-                { time: "11:23", type: "msg", content: "campus*", sendby: "amit" },
+                { time: "11:23", type: "msg", content: "ill be in the campos in 12:20", sendby: "1" },
+                { time: "11:23", type: "msg", content: "campus*", sendby: "1" },
             ]
 
         },
@@ -79,7 +79,7 @@ function SignUp() {
             messages: [
                 { time: "12:10", type: "msg", content: "Hello Amit אחי היקר!", sendby: "yair" },
                 { time: "12:14", type: "msg", content: "do you have some tips for me when i will be a prime minister?", sendby: "yair" },
-                { time: "15:43", type: "msg", content: "i think that you will not be prime minister", sendby: "amit" },
+                { time: "15:43", type: "msg", content: "i think that you will not be prime minister", sendby: "1" },
                 { time: "16:22", type: "msg", content: "i have some tricks in my pocket", sendby: "yair" },
                 { time: "16:22", type: "msg", content: "dont you worry", sendby: "yair" },
             ]
@@ -90,10 +90,10 @@ function SignUp() {
             nickname: "Gal Kaminka",
             picture: "/gal.jpg",
             messages: [
-                { time: "09:06", type: "msg", content: "Hello gal !", sendby: "amit" },
+                { time: "09:06", type: "msg", content: "Hello gal !", sendby: "1" },
                 { time: "10:11", type: "msg", content: "Hello dear student!", sendby: "gal" },
-                { time: "12:10", type: "msg", content: "look at the beautiful bananas !", sendby: "amit" },
-                { time: "12:10", type: "pic", content: "/banana.jpg", sendby: "amit" },
+                { time: "12:10", type: "msg", content: "look at the beautiful bananas !", sendby: "1" },
+                { time: "12:10", type: "pic", content: "/banana.jpg", sendby: "1" },
             ]
 
         },
@@ -102,9 +102,9 @@ function SignUp() {
             nickname: "Justin Bieber",
             picture: "/justin.jpg",
             messages: [
-                { time: "11:10", type: "msg", content: "Love your new Album!", sendby: "amit" },
+                { time: "11:10", type: "msg", content: "Love your new Album!", sendby: "1" },
                 { time: "23:35", type: "msg", content: "I dont care bro", sendby: "justin" },
-                { time: "23:37", type: "vid", content: "/video.mp4", sendby: "amit" },
+                { time: "23:37", type: "vid", content: "/video.mp4", sendby: "1" },
             ]
 
         },
@@ -121,6 +121,7 @@ function SignUp() {
         ]
       };
       users[username] = newUser;
+      existingUsers[0] = username;
     }
     return flag;
   }

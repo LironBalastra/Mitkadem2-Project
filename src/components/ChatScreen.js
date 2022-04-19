@@ -12,8 +12,9 @@ import { submitMessage, handleSubmitChange, activeMessage } from "./sendMessage"
 import SendPhotoModal from "./modals/SendPhotoModal";
 import DisplayMessages from "./DisplayMessages";
 import SendVideo from "./SendVideo";
+import existingUsers from "./usersInfo";
 function ChatScreen() {
-	const user = "amit";
+	const user = existingUsers[0];
 	const [contactList, setcontactList] = useState(users[user].contacts);
 	const [activeContact, setActiveContact] = useState(0);
 	const [messages, setmessages] = useState([]);

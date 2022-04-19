@@ -5,7 +5,7 @@ const DisplayMessages = props => {
         const messages = props.messages;
 
         return (messages.map(message => {
-            if (message.sendby === props.user) { // Right
+            if (message.sendby === "1") { // Right
                 if (message.type === "msg") {
                     return (<li class="clearfix float-up">
                         <div class="message-header float-right">{message.time}</div><br />
@@ -22,7 +22,6 @@ const DisplayMessages = props => {
                         <div class="message other-message float-right"> <img src={message.content} width="500" height="300"></img></div>
                     </li>);
                 else if (message.type === "vid")
-                console.log(message.content)
                     return (<li class="clearfix float-up">
                         <div class="message-header float-right">{message.time}</div>
                         <div class="message-data text-right float-right">
@@ -49,7 +48,6 @@ const DisplayMessages = props => {
                         <div class="message other-message float-left"> <img src={message.content} width="300" height="200"></img></div>
                     </li>);
                 else if (message.type === "vid")
-                console.log(message.content)
                     return (<li class="clearfix float-up">
                         <div class="message-header float-left">{message.time}</div>
                         <div class="message-data text-right float-left">
