@@ -36,7 +36,7 @@ const DisplayMessages = props => {
                     <div class="message-header">{message.time}</div>
                         <div class="message-data text-right float-left">
                         </div>
-                        <div class="message other-message float-left"> <img src={message.content} width="300" height="200"></img></div>
+                        <div class="message other-message float-left"> <img src="date:bas64{message.content}" width="300" height="200"></img></div>
                     </li>);
             }
         }

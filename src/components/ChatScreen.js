@@ -51,7 +51,7 @@ function ChatScreen() {
 												<span class="close">&times;</span>
 												<h5 class="modal-title">Send Photo</h5>
 												<div class="mb-3">
-													<input class="form-control" type="file" id="formFile" />
+													<input class="form-control" type="file" id="photoFile" />
 												</div>
 												<input class="btn btn-primary" type="button" value="Send" onClick={SendPhoto}></input>
 											</div>

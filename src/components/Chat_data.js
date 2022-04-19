@@ -25,7 +25,7 @@ export const users = {
                     { time: "12:14", type: "msg", content: "do you have some tips for me when i will be a prime minister?", sendby: "yair" },
                     { time: "15:43", type: "msg", content: "i think that you will not be prime minister", sendby: "amit" },
                     { time: "16:22", type: "msg", content: "i have some tricks in my pocket", sendby: "yair" },
-                    { time: "16:22", type: "msg", content: "dont you worryע", sendby: "yair" },
+                    { time: "16:22", type: "msg", content: "dont you worry", sendby: "yair" },
                 ]
 
             },
