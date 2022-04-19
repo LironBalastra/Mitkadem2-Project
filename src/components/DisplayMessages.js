@@ -6,9 +6,10 @@ const DisplayMessages = props => {
 
         return (messages.map(message => {
             if (message.sendby === props.user) { // Right
+                console.log("@@@@@@@@@")
                 if (message.type === "msg") {
                     return (<li class="clearfix float-up">
-                    <div class="message-header float-right">{message.time}</div><br/>
+                        <div class="message-header float-right">{message.time}</div><br />
                         <div class="message-data text-right">
                         </div>
                         <div class="message other-message float-right"> {message.content}</div>
@@ -16,36 +17,47 @@ const DisplayMessages = props => {
                 }
                 else if (message.type === "pic")
                     return (<li class="clearfix float-up">
-                    <div class="message-header float-right">{message.time}</div>
+                        <div class="message-header float-right">{message.time}</div>
                         <div class="message-data text-right float-right">
                         </div>
                         <div class="message other-message float-right"> <img src={message.content} width="500" height="300"></img></div>
                     </li>);
-                else if(message.type === "vid")
-                return (<li class="clearfix float-up">
-                    <div class="message-header float-right">{message.time}</div>
+                else if (message.type === "vid")
+                console.log(message.content)
+                    return (<li class="clearfix float-up">
+                        <div class="message-header float-right">{message.time}</div>
                         <div class="message-data text-right float-right">
                         </div>
                         <div class="message other-message float-right"> <video width="500" height="300" controls>
-                        <source src="/video.mp4" type="video/mp4"></source>
+                            <source src={message.content} type="video/mp4"></source>
                         </video></div>
                     </li>);
             }
 
-            else{  //Left
+            else {  //Left
                 if (message.type === "msg") {
                     return (<li class="clearfix float-up">
-                    <div class="message-header float-left">{message.time}</div>
-                        <div class="message-data text-left"/>
+                        <div class="message-header float-left">{message.time}</div>
+                        <div class="message-data text-left" />
                         <div class="message other-message float-left "> {message.content}</div>
                     </li>);
                 }
                 else if (message.type === "pic")
                     return (<li class="clearfix float-up">
-                    <div class="message-header">{message.time}</div>
+                        <div class="message-header float-left">{message.time}</div>
                         <div class="message-data text-right float-left">
                         </div>
                         <div class="message other-message float-left"> <img src={message.content} width="300" height="200"></img></div>
+                    </li>);
+                else if (message.type === "vid")
+                console.log(message.content)
+                    return (<li class="clearfix float-up">
+                        <div class="message-header float-left">{message.time}</div>
+                        <div class="message-data text-right float-left">
+                        </div>
+                        <div class="message other-message float-left"> <video width="500" height="300" controls>
+                            <source src={message.content} type="video/mp4"></source>
+                        </video></div>
                     </li>);
             }
         }

@@ -21,11 +21,10 @@ function submitMessage(activeContact, user, setmessages, num,uniqueContent) {
                 setmessages([...users[user].contacts[activeContact].messages]);
         }
         if(num === "3"){  //video
-                console.log("hey")
                 var today = new Date();
                 var curtime = today.getHours() + ":" + today.getMinutes();
                 const chatWith = users[user].contacts[activeContact].username;
-                users[user].contacts[activeContact].messages.push({ time: curtime, type: "pic", content: uniqueContent, sendby: user });
+                users[user].contacts[activeContact].messages.push({ time: curtime, type: "vid", content: uniqueContent, sendby: user });
                 setmessages([...users[user].contacts[activeContact].messages]);
         }
 }

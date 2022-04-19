@@ -11,8 +11,8 @@ export const users = {
                 messages: [
                     { time: "10:10", type: "msg", content: "Hello Liron !", sendby: "amit" },
                     { time: "10:11", type: "msg", content: "Hello Amit!", sendby: "liron" },
-                    { time: "11:23", type: "msg", content: "You look so good today", sendby: "amit" },
-                    { time: "11:23", type: "msg", content: "are you single?", sendby: "amit" },
+                    { time: "11:23", type: "msg", content: "ill be in the campos in 12:20", sendby: "amit" },
+                    { time: "11:23", type: "msg", content: "campus*", sendby: "amit" },
                 ]
 
             },
