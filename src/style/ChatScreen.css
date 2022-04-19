@@ -155,7 +155,9 @@ body {
     padding: 10px 0px;
 
 }
-
+.message-header{
+    color:white;
+}
 .chat .chat-history .message {
     color: #444;
     padding: 18px 20px;
@@ -163,7 +165,8 @@ body {
     font-size: 16px;
     border-radius: 7px;
     display: inline-block;
-    position: relative
+    position: relative;
+    word-break: break-word
 }
 
 .chat .chat-history .message:after {

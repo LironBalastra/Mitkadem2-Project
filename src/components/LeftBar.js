@@ -6,9 +6,9 @@ export default function LeftBar(props) {
     return (
         <>
         <div class="clearfix">
-        <img src="/Amitpic.jpeg" width={40} height={40} />
+        <img src={props.users[props.user].picture} width={40} height={40} />
         <div class="about float-left">
-            <div class="name">Amit Cohen</div>
+            <div class="name">{props.users[props.user].nickname}</div>
             <div class="status"> <i></i></div>
         </div>
         <button id="addnewcontact" type="button" class="btn btn-primary float-right" onClick={AddNewContact}>
@@ -28,7 +28,7 @@ export default function LeftBar(props) {
         </div>
          <ul class="list-unstyled chat-list mt-2 mb-0">
                 {props.contactList.map((contact,index) => {
-                    return (<Contact setActiveContact = {props.setActiveContact} activeContact = {props.activeContact} setmessages = {props.setmessages} index = {index} name={contact.nickname} image={contact.picture} />);
+                    return (<Contact setActiveContact = {props.setActiveContact} activeContact = {props.activeContact} setmessages = {props.setmessages} index = {index} name={contact.nickname} image={contact.picture} messages ={props.messages} user={props.user} users = {props.users}/>);
                 }
                 )}
             </ul></>
