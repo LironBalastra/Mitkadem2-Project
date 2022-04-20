@@ -7,6 +7,7 @@ import SendVideoModal from "./modals/SendVideoModal";
 import { users } from "./Chat_data";
 import { useEffect } from "react";
 import ReactDOM from 'react-dom';
+import {RecordAudio, stopRecord} from "./RecordAudio";
 import { submitMessage, handleSubmitChange, activeMessage } from "./sendMessage";
 import SendPhotoModal from "./modals/SendPhotoModal";
 import DisplayMessages from "./DisplayMessages";
@@ -80,9 +81,11 @@ function ChatScreen() {
 												<span class="close">&times;</span>
 												<h5 class="modal-title">Send Record</h5>
 												<div class="mb-3">
-													<input class="form-control" type="file" id="formFile" />
+													<button id="Audiobutton" class ="float-center" type="button" onClick={()=>{RecordAudio();}}>
+														<a href="javascript:void(0);" class="bi bi-record-circle"><i class="fa fa-microphone"></i></a>
+													</button>
 												</div>
-												<input class="btn btn-primary" type="button" value="Send"></input>
+												<input class="btn btn-primary" type="button" value="Send" onClick = {()=>{stopRecord(activeContact, user, setmessages)}}></input>
 											</div>
 										</div>
 									</div>

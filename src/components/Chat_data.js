@@ -9,10 +9,10 @@ export var users = {
                 nickname: "Liron Balastra",
                 picture: "/Liron.jpg",
                 messages: [
-                    { time: "10:10", type: "msg", content: "Hello Liron !", sendby: "amit" },
+                    { time: "10:10", type: "msg", content: "Hello Liron !", sendby: "1" },
                     { time: "10:11", type: "msg", content: "Hello Amit!", sendby: "liron" },
-                    { time: "11:23", type: "msg", content: "ill be in the campos in 12:20", sendby: "amit" },
-                    { time: "11:23", type: "msg", content: "campus*", sendby: "amit" },
+                    { time: "11:23", type: "msg", content: "ill be in the campos in 12:20", sendby: "1" },
+                    { time: "11:23", type: "msg", content: "campus*", sendby: "1" },
                 ]
 
             },
@@ -59,6 +59,7 @@ export var users = {
                 messages: [
                     { time: "13:16", type: "msg", content: "I heard that you are the best kicker in Bar Ilan", sendby: "ronaldo" },
                     { time: "13:16", type: "msg", content: "Do you want to play?", sendby: "ronaldo" },
+                    { time: "13:27", type: "aud", content: "/Recording.m4a", sendby: "1" },
                 ]
 
             }
