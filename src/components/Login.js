@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "../style/Login.css";
 import { Link, useNavigate } from "react-router-dom";
-import usersData from "./usersInfo";
-export let currentUser = { username: "" };
+import { users } from "./Chat_data";
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPaswword] = useState("");
   const navigate = useNavigate();
 
   function isUserExists() {
-    for (var existsUsername in usersData) {
+    for (var existsUsername in users) {
       if (username == existsUsername) {
         return true;
       }
@@ -25,13 +25,14 @@ function Login() {
     } else if (!isUserExists()) {
       createAlart("Username or Password is incorrect.", "detasilsError");
     } else {
-      const correctPassword = password == usersData[username].password;
+      const correctPassword = password == users[username].password;
       if (!correctPassword) {
         createAlart("Username or Password is incorrect.", "detasilsError");
       }
       //success
       else {
         flag = true;
+        createAlart("log in!", "detasilsError");
       }
     }
     return flag;
@@ -58,8 +59,6 @@ function Login() {
     event.preventDefault();
     removeAlart();
     if (checkUserDetails()) {
-      currentUser.username = username;
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>>", currentUser.username);
       navigate("/./chat");
     }
   };

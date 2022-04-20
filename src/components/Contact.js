@@ -11,7 +11,6 @@ export default function Contact(props) {
         if (props.activeContact === props.index) setSelected("active");
         else setSelected("");
     }, [props.activeContact])
-    var timeleft = 7 * props.index;
     var lastmessage = props.messages.at(-1);
     var curcontacts = props.users[props.user].contacts;
     var lastmessage;
@@ -34,9 +33,20 @@ export default function Contact(props) {
             var content = "audio";
         var time = lastmessage.time;
     }
+    if (props.image === "")
     return (
         <li class={"clearfix " + selected} onClick={clickHandler}>
-            <img src={props.image} alt="avatar" />
+            <img src="/avatar.jpg" />
+            <div class="about">
+                <div class="name">{props.name}</div>
+                <div class="status"> <i></i> {content} : {time}</div>
+            </div>
+        </li>
+    )
+    else
+    return (
+        <li class={"clearfix " + selected} onClick={clickHandler}>
+            <img src={props.image} />
             <div class="about">
                 <div class="name">{props.name}</div>
                 <div class="status"> <i></i> {content} : {time}</div>

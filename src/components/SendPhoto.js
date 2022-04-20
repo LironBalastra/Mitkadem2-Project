@@ -1,15 +1,14 @@
 import React from "react";
 import { submitMessage } from "./sendMessage";
 function SendPhoto(activeContact, user, setmessages) {
-  const el = document.getElementById("photoFile");
-  if (el != null && typeof el.files[0] === "object") {
+    const el = document.getElementById("photoFile");
     const reader = new FileReader();
-    reader.readAsDataURL(el.files[0]);
-    reader.addEventListener("load", () => {
-      localStorage.setItem("recent-image", reader.result);
-    });
-    const base64 = localStorage.getItem("recent-image");
-    submitMessage(activeContact, user, setmessages, "2", base64);
-  }
+    const file = el.files[0];
+    reader.onload = handleReaderLoad;
+    reader.readAsDataURL(file);
+    function handleReaderLoad(e) {
+        var filePayload = e.target.result;
+        submitMessage(activeContact, user, setmessages, "2", filePayload);
+    }
 }
-export default SendPhoto;
+export default SendPhoto

@@ -6,7 +6,7 @@ import ChatScreen from "./components/ChatScreen";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<Login/>} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/chat" element={<ChatScreen />} />
     </Routes>

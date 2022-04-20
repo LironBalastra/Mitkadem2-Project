@@ -151,13 +151,15 @@ body {
 
 .float-up {
     position: relative;
-    margin-top : 10px;
+    margin-top: 10px;
     padding: 10px 0px;
 
 }
-.message-header{
-    color:white;
+
+.message-header {
+    color: white;
 }
+
 .chat .chat-history .message {
     color: #444;
     padding: 18px 20px;
@@ -185,6 +187,12 @@ body {
 
 .chat .chat-history .my-message {
     background: #efefef
+}
+
+.float-center {
+    margin-left: 225px;
+    display: flex;
+    justify-content: center;
 }
 
 .chat .chat-history .my-message:after {
@@ -242,6 +250,7 @@ body {
 .float-left {
     float: left
 }
+
 .clearfix:after {
     visibility: hidden;
     display: block;
