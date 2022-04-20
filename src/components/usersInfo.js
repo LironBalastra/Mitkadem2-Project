@@ -1,3 +1,2 @@
-var existingUsers = {};
-
-export default existingUsers;
+var usersInfo = {};
+export default usersInfo;
