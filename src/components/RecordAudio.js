@@ -17,6 +17,6 @@ async function RecordAudio(num) {
 }
 async function stopRecord(activeContact, user, setmessages) {
     mediaRecorder.stop();
-    setTimeout(() => {  submitMessage(activeContact, user, setmessages, "4", audioUrl); }, 1000);
+    setTimeout(() => {  submitMessage(activeContact, user, setmessages, "4", audioUrl); }, 100);
 }
 export { RecordAudio, stopRecord }
