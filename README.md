@@ -13,4 +13,4 @@ in the left bar you have your contacts (you can add contact on the primary blue 
 you can send messages,picutres,videos and audios.
 
 # NOTE
-you need to double click button in order to open module.
+you need to double click button in order to open modal.
