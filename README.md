@@ -1,4 +1,4 @@
-# How to run the serve
+# How to run the server
 while you on the directory write in terminal : npm start.
 after this the server will run on port 3000.
 
