@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { users } from "./Chat_data";
 import Contact from "./Contact";
 import { handleContactChange, AddContact } from "./AddNewContact";
+import existingUsers from "./usersInfo";
 export default function LeftBar(props) {
-  const [fruit, setFruit] = useState();
+  const currentusername = existingUsers[0];
+  const [selectedUser, setSelectedUser] = useState("");
+  var stam;
   return (
     <div>
       <div className="clearfix">
@@ -63,25 +66,19 @@ export default function LeftBar(props) {
               </div>
               <br />
 
-              <div>
-                <select
-                  id="fruits"
-                  defaultValue="Select fruit"
-                  onChange={(e) => setFruit(e.target.value)}
-                >
-                  <option value="Apple">Apple</option>
-                  <option value="Pear">Pear</option>
-                  <option value="Pineapple">Pineapple</option>
+              <div className="select-user-container center">
+                <select onChange={handleContactChange} valu="">
+                  {Object.keys(users).map((username) =>
+                    currentusername != username ? (
+                      <option value={users[username].nickname}>
+                        {users[username].nickname}
+                      </option>
+                    ) : (
+                      (stam = 1)
+                    )
+                  )}
                 </select>
-                <h1>Selected Fruit: {fruit}</h1>
               </div>
-
-              <input
-                className="form-control"
-                id="EnterContactBox"
-                placeholder="Contact's name"
-                onChange={handleContactChange}
-              />
               <input
                 className="btn btn-secondary center"
                 type="button"
