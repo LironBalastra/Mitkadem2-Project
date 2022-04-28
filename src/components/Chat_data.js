@@ -29,28 +29,29 @@ export var users = {
     password: "12345678",
     contacts: [],
   },
-  amitC: {
-    nickname: "Amit Cohen",
-    password: "12345678",
-    picture: "/Amitpic.jpeg",
-    contacts: [],
-  },
   lironB: {
     nickname: "liron Balastra",
     password: "12345678",
     picture: "/Liron.jpg",
     contacts: [],
   },
-  Emoji1: {
-    nickname: "Emoji",
-    password: "12345678",
-    picture: "/Emoji.jpg",
-    contacts: [],
-  },
+
   aladdin1: {
     nickname: "aladdin",
     password: "12345678",
     picture: "/aladdin.jpg",
+    contacts: [],
+  },
+  bob: {
+    nickname: "bob2",
+    password: "12345678",
+    picture: "bob.jpg",
+    contacts: [],
+  },
+  Dana_1: {
+    nickname: "dandan2",
+    password: "12345678",
+    picture: "dana.jpg",
     contacts: [],
   },
 };

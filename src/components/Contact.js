@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 export default function Contact(props) {
-  // console.log("----------prop.name--------------", props.name);
-  // console.log("----------prop.user--------------", props.user);
   const [selected, setSelected] = useState("");
 
   const clickHandler = () => {
@@ -48,6 +46,10 @@ export default function Contact(props) {
       </li>
     );
   } else {
+    var show_content = content;
+    if (content != undefined && content.length > 14) {
+      show_content = show_content.substring(0, 14);
+    }
     return (
       <li
         className={"clearfix " + selected}
@@ -59,7 +61,7 @@ export default function Contact(props) {
           <div className="name">{props.name}</div>
           <div className="status">
             {" "}
-            <i></i> {content.substring(0, 14)} : {time}
+            <i></i> {show_content} : {time}
           </div>
         </div>
       </li>

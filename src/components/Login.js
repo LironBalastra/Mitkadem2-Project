@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { users } from "./Chat_data";
 import existingUsers from "./usersInfo";
 import existingContacts from "./contacts";
+import isRefresh from "./refreshGlobal";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPaswword] = useState("");
@@ -32,6 +33,7 @@ function Login() {
       }
       //success
       else {
+        isRefresh.refresh = false;
         flag = true;
         existingUsers[0] = username;
         users[username].contacts = existingContacts;

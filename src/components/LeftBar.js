@@ -7,6 +7,26 @@ export default function LeftBar(props) {
   const currentusername = existingUsers[0];
   const [selectedUser, setSelectedUser] = useState("");
   var stam;
+
+  var alredyInUsers = [users[currentusername].nickname];
+  for (var u of users[currentusername].contacts) {
+    alredyInUsers.push(u.nickname);
+  }
+  var addedUsers = [];
+  for (var x in users) {
+    if (!alredyInUsers.includes(users[x].nickname)) {
+      addedUsers.push(users[x].nickname);
+    }
+  }
+
+  function checkDisableBtn() {
+    if (addedUsers.length == 0) {
+      document.getElementById("select-new-contact-btn").disabled = true;
+    } else {
+      document.getElementById("select-new-contact-btn").disabled = false;
+    }
+  }
+
   return (
     <div>
       <div className="clearfix">
@@ -25,6 +45,7 @@ export default function LeftBar(props) {
           className="btn btn-secondary float-right"
           data-toggle="modal"
           data-target="#newContactModal"
+          onClick={checkDisableBtn}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -67,9 +88,13 @@ export default function LeftBar(props) {
               <br />
 
               <div className="select-user-container center">
-                <select onChange={handleContactChange} valu="">
+                <select
+                  id="select-contacts-list"
+                  class="form-select"
+                  aria-label="Default select"
+                >
                   {Object.keys(users).map((username) =>
-                    currentusername != username ? (
+                    addedUsers.includes(users[username].nickname) ? (
                       <option value={users[username].nickname}>
                         {users[username].nickname}
                       </option>
@@ -79,23 +104,29 @@ export default function LeftBar(props) {
                   )}
                 </select>
               </div>
-              <input
+              <button
                 className="btn btn-secondary center"
                 type="button"
-                value="Add"
-                onClick={() =>
-                  AddContact(props.user, props.users, props.setcontactList)
-                }
-              ></input>
+                id="select-new-contact-btn"
+                data-dismiss="modal"
+                onClick={(e) => {
+                  var e = document.getElementById("select-contacts-list");
+                  AddContact(
+                    props.user,
+                    props.users,
+                    props.setcontactList,
+                    e.value
+                  );
+                }}
+              >
+                Add{" "}
+              </button>
             </div>
           </div>
         </div>
       </div>
       <ul className="list-unstyled chat-list mt-2 mb-0" key={props.user}>
         {props.contactList.map((contact, index) => {
-          //   console.log("------ user: ", props.user);
-          //   console.log("------ index: ", index);
-          //   console.log("--------------------------------------");
           return (
             <Contact
               setActiveContact={props.setActiveContact}

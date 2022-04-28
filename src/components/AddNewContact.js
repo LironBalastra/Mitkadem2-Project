@@ -1,19 +1,21 @@
 import React from "react";
-var activeContact;
 
-function AddContact(user, users, setcontactList) {
+function AddContact(user, users, setcontactList, activeContactNickname) {
+  var activeContactUsername = "";
+  for (var u in users) {
+    if (users[u].nickname === activeContactNickname) {
+      activeContactUsername = u;
+    }
+  }
+
   var newContact = {
-    username: "",
-    nickname: activeContact,
-    picture: "",
+    username: activeContactUsername,
+    nickname: activeContactNickname,
+    picture: users[activeContactUsername].picture,
     messages: [],
   };
   users[user].contacts.unshift(newContact);
   setcontactList([...users[user].contacts]);
 }
-function handleContactChange(event) {
-  activeContact = event.target.value;
-  console.log("-------------------------------- ", activeContact);
-}
 
-export { handleContactChange, AddContact };
+export { AddContact };

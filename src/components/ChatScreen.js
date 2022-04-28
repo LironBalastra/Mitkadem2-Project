@@ -12,21 +12,36 @@ import {
   activeMessage,
 } from "./sendMessage";
 import DisplayMessages from "./DisplayMessages";
+import { useNavigate } from "react-router-dom";
 import SendVideo from "./SendVideo";
 import existingUsers from "./usersInfo";
+import isRefresh from "./refreshGlobal";
 function ChatScreen() {
+  if (isRefresh.refresh) {
+    window.location.href = "/";
+    return;
+  }
   const user = existingUsers[0];
   const [contactList, setcontactList] = useState(users[user].contacts);
   const [activeContact, setActiveContact] = useState(0);
   const [messages, setmessages] = useState([]);
-  var Chatwith = users[user].contacts[activeContact].nickname;
-  var Picturewith = users[user].contacts[activeContact].picture;
-  if (Picturewith === "") Picturewith = "/avatar.jpg";
-  useEffect(() => {
-    setmessages(users[user].contacts[activeContact].messages);
+  var Chatwith = "";
+  var Picturewith = "";
+  if (users[user].contacts.length != 0) {
     Chatwith = users[user].contacts[activeContact].nickname;
     Picturewith = users[user].contacts[activeContact].picture;
-  }, [activeContact, messages]);
+    if (Picturewith === "") Picturewith = "/avatar.jpg";
+    useEffect(() => {
+      setmessages(users[user].contacts[activeContact].messages);
+      Chatwith = users[user].contacts[activeContact].nickname;
+      Picturewith = users[user].contacts[activeContact].picture;
+    }, [activeContact, messages]);
+  }
+
+  function DisableBtn(flag) {
+    document.getElementById("sendAudioBtn").disabled = flag;
+  }
+
   return (
     <div>
       <link
@@ -71,6 +86,10 @@ function ChatScreen() {
                         class="btn btn-secondary"
                         data-toggle="modal"
                         data-target="#PhotoModal"
+                        onClick={() => {
+                          document.getElementById("photoFile").value = "";
+                          document.getElementById("sendImgBtn").disabled = true;
+                        }}
                       >
                         <i className="fa fa-camera"></i>
                       </button>
@@ -103,9 +122,15 @@ function ChatScreen() {
                                 type="file"
                                 id="photoFile"
                                 accept="image/*"
+                                onChange={() => {
+                                  document.getElementById(
+                                    "sendImgBtn"
+                                  ).disabled = false;
+                                }}
                               />
                             </div>
                             <input
+                              id="sendImgBtn"
                               data-dismiss="modal"
                               className="btn btn-secondary"
                               type="button"
@@ -124,6 +149,12 @@ function ChatScreen() {
                         class="btn btn-secondary"
                         data-toggle="modal"
                         data-target="#VideoModal"
+                        onClick={() => {
+                          document.getElementById("videoFile").value = "";
+                          document.getElementById(
+                            "sendVideoBtn"
+                          ).disabled = true;
+                        }}
                       >
                         <i className="fa fa-youtube-play"></i>
                       </button>
@@ -156,9 +187,15 @@ function ChatScreen() {
                                 type="file"
                                 id="videoFile"
                                 accept="video/*"
+                                onChange={() => {
+                                  document.getElementById(
+                                    "sendVideoBtn"
+                                  ).disabled = false;
+                                }}
                               />
                             </div>
                             <input
+                              id="sendVideoBtn"
                               data-dismiss="modal"
                               className="btn btn-secondary"
                               type="button"
@@ -177,6 +214,7 @@ function ChatScreen() {
                         class="btn btn-secondary"
                         data-toggle="modal"
                         data-target="#AudioModal"
+                        onClick={() => DisableBtn(true)}
                       >
                         <i className="fa fa-microphone"></i>
                       </button>
@@ -209,6 +247,9 @@ function ChatScreen() {
                                 className="float-center"
                                 type="button"
                                 onClick={() => {
+                                  {
+                                    DisableBtn(false);
+                                  }
                                   RecordAudio();
                                 }}
                               >
@@ -224,6 +265,7 @@ function ChatScreen() {
                               data-dismiss="modal"
                               className="btn btn-secondary"
                               type="button"
+                              id="sendAudioBtn"
                               value="Send"
                               onClick={() => {
                                 stopRecord(activeContact, user, setmessages);

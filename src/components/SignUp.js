@@ -4,6 +4,8 @@ import existingUsers from "./usersInfo";
 import { Link, useNavigate } from "react-router-dom";
 import { users } from "./Chat_data";
 import existingContacts from "./contacts";
+import isRefresh from "./refreshGlobal";
+
 function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPaswword] = useState("");
@@ -56,11 +58,12 @@ function SignUp() {
     } // success
     else {
       flag = true;
+      isRefresh.refresh = false;
       var constContacts = {
         nickname: nickname,
         password: password,
         picture: userImageURL,
-        contacts: existingContacts,
+        contacts: [],
       };
       users[username] = constContacts;
       existingUsers[0] = username;
